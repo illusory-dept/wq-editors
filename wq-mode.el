@@ -29,7 +29,7 @@
                      "count" "first" "last" "reverse" "sum" "max" "min" "avg"
                      "rand" "sin" "cos" "tan" "sinh" "cosh" "tanh"
                      "til" "range" "take" "drop" "where" "distinct" "sort"
-                     "cat" "flatten" "load"
+                     "cat" "flatten" "load" "asciiplot"
                      "and" "or" "not" "xor"
                      "type" "string" "symbol" "echo" "showt" "exec"))
          (constants '("true" "false" "null")))
