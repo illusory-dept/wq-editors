@@ -1,0 +1,16 @@
+emacs:
+
+  (load "path/to/wq-mode.el")
+  M-x eval-buffer
+
+vi:
+
+  TODO
+
+VSCode:
+
+  TODO
+
+TECO:
+
+  TODO
