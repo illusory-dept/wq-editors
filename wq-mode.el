@@ -1,7 +1,7 @@
 ;;; wq-mode.el --- Major mode for editing wq scripts -*- lexical-binding: t -*-
 
 ;; Author: mtx@nekoarch.cc
-;; Version: 0.2.0
+;; Version: 0.3.1
 ;; Keywords: languages
 ;; Package-Requires: ((emacs "24.4"))
 
@@ -25,19 +25,20 @@
 
 (defvar wq-font-lock-keywords
   (let* ((builtins '("abs" "neg" "signum" "sqrt" "exp" "ln"
-                     "floor" "ceiling"
+                     "floor" "ceiling" "null?" "@b" "@c" "@r" "@a"
                      "count" "first" "last" "reverse" "sum" "max" "min" "avg"
                      "rand" "sin" "cos" "tan" "sinh" "cosh" "tanh"
                      "til" "range" "take" "drop" "where" "distinct" "sort"
                      "cat" "flatten" "load" "asciiplot"
-                     "and" "or" "not" "xor"
+                     "and" "or" "not" "xor" "format"
                      "type" "string" "symbol" "echo" "showt" "exec"))
          (constants '("true" "false" "null")))
     `(
       ("\\_<\\([A-Za-z][A-Za-z0-9_]*\\):" 1 font-lock-variable-name-face)
-      (,(concat "\\_<" (regexp-opt builtins t) "\\_>") . font-lock-keyword-face)
-      (,(concat "\\_<" (regexp-opt constants t) "\\_>") . font-lock-constant-face)
-      ("\\_<[+-]?[0-9]+\\(?:\\.[0-9]+\\)?\\_>" . font-lock-constant-face)
+      (,(concat "\\(?:\\s-\\|^\\)" (regexp-opt builtins t) "\\(?:\\s-\\|$\\)") . font-lock-keyword-face)
+      (,(regexp-opt constants 'symbols) . font-lock-constant-face)
+      ("\\b[+-]?[0-9]+\\.[0-9]+\\b" . font-lock-constant-face)
+      ("\\b[+-]?[0-9]+\\b" . font-lock-constant-face)
       ("`[A-Za-z_][A-Za-z0-9_]*" . font-lock-variable-name-face)
       ("\"[^\"]*\"" . font-lock-string-face)
       ("//.*$" . font-lock-comment-face)
