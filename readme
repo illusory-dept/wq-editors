@@ -2,11 +2,14 @@ emacs:
   (load "path/to/wq-mode.el")
   M-x eval-buffer
 
+zed:
+  https://github.com/illusory-dept/wq-zed
+
 vi:
-  TODO
+  todo
 
 TECO:
-  TODO
+  todo
 
-zed:
-  TODO
+vs code:
+  todo
